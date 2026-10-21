@@ -10710,6 +10710,39 @@
         "vitest": "3.2.6",
       },
     },
+    "packages/pieces/custom/playstack-dataforseo": {
+      "name": "@activepieces/piece-playstack-dataforseo",
+      "version": "0.1.0",
+      "dependencies": {
+        "@activepieces/pieces-common": "workspace:*",
+        "@activepieces/pieces-framework": "workspace:*",
+      },
+      "devDependencies": {
+        "tslib": "2.6.2",
+      },
+    },
+    "packages/pieces/custom/playstack-fridgeit": {
+      "name": "@activepieces/piece-playstack-fridgeit",
+      "version": "0.1.0",
+      "dependencies": {
+        "@activepieces/pieces-common": "workspace:*",
+        "@activepieces/pieces-framework": "workspace:*",
+      },
+      "devDependencies": {
+        "tslib": "2.6.2",
+      },
+    },
+    "packages/pieces/custom/playstack-pagespeed": {
+      "name": "@activepieces/piece-playstack-pagespeed",
+      "version": "0.1.0",
+      "dependencies": {
+        "@activepieces/pieces-common": "workspace:*",
+        "@activepieces/pieces-framework": "workspace:*",
+      },
+      "devDependencies": {
+        "tslib": "2.6.2",
+      },
+    },
     "packages/pieces/framework": {
       "name": "@activepieces/pieces-framework",
       "version": "0.40.0",
@@ -12185,6 +12218,12 @@
     "@activepieces/piece-placid": ["@activepieces/piece-placid@workspace:packages/pieces/community/placid"],
 
     "@activepieces/piece-plausible": ["@activepieces/piece-plausible@workspace:packages/pieces/community/plausible"],
+
+    "@activepieces/piece-playstack-dataforseo": ["@activepieces/piece-playstack-dataforseo@workspace:packages/pieces/custom/playstack-dataforseo"],
+
+    "@activepieces/piece-playstack-fridgeit": ["@activepieces/piece-playstack-fridgeit@workspace:packages/pieces/custom/playstack-fridgeit"],
+
+    "@activepieces/piece-playstack-pagespeed": ["@activepieces/piece-playstack-pagespeed@workspace:packages/pieces/custom/playstack-pagespeed"],
 
     "@activepieces/piece-plunk": ["@activepieces/piece-plunk@workspace:packages/pieces/community/plunk"],
 

@@ -9,6 +9,7 @@ This fork exists only to rebrand Activepieces as Playstack Flows. Keep the chang
 - `packages/web/public/logo.svg`, `logo-180.png`, `logo-192.png`, `favicon.ico`: Playstack icon.
 - `packages/web/public/brand/`: icon and full logo used by the theme.
 - `.github/workflows/playstack-image.yml`: builds `ghcr.io/playstack-com-au/activepieces` on every push to the `playstack` branch.
+- `packages/pieces/custom/playstack-*`: our own pieces (FridgeIt, DataForSEO, Google PageSpeed) so their logins live in Flows connections, not in steps. The `Dockerfile` builds them and keeps them in the image.
 
 Nothing under `packages/ee` or `packages/server/api/src/app/ee` is touched. Those folders are under Activepieces' commercial licence.
 
@@ -22,6 +23,16 @@ git push origin playstack
 ```
 
 Merge release tags, not upstream `main`. Releases carry database migrations that can't be rolled back, so the server should only ever move forward one tested release at a time.
+
+## Our own pieces
+
+Community Edition can't upload custom pieces, so ours ship inside the image and load through `AP_DEV_PIECES`. The Flows server's `.env` must have:
+
+```
+AP_DEV_PIECES=playstack-fridgeit,playstack-dataforseo,playstack-pagespeed
+```
+
+To add a piece: create it under `packages/pieces/custom/playstack-<name>`, add its path to `tsconfig.base.json`, add it to the piece build line in the `Dockerfile` and to `AP_DEV_PIECES`. Bump a piece's `version` in its `package.json` whenever its props change.
 
 ## Deploying
 

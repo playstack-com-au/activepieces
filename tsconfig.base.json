@@ -1173,6 +1173,15 @@
       "@activepieces/piece-savvycal": [
         "packages/pieces/community/savvycal/src/index.ts"
       ],
+      "@activepieces/piece-playstack-fridgeit": [
+        "packages/pieces/custom/playstack-fridgeit/src/index.ts"
+      ],
+      "@activepieces/piece-playstack-dataforseo": [
+        "packages/pieces/custom/playstack-dataforseo/src/index.ts"
+      ],
+      "@activepieces/piece-playstack-pagespeed": [
+        "packages/pieces/custom/playstack-pagespeed/src/index.ts"
+      ],
       "@activepieces/piece-scenario": [
         "packages/pieces/community/scenario/src/index.ts"
       ],

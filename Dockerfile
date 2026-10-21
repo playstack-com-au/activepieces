@@ -95,6 +95,8 @@ COPY . .
 # Build frontend, engine, server API, and worker
 RUN NODE_OPTIONS=--max-old-space-size=4096 npx turbo run build --filter=web --filter=@activepieces/engine --filter=api --filter=worker
 
+RUN npx turbo run build --filter=@activepieces/piece-playstack-fridgeit --filter=@activepieces/piece-playstack-dataforseo --filter=@activepieces/piece-playstack-pagespeed
+
 # Source maps are off unless AP_BUILD_SOURCEMAP=true: generating them costs ~1GB of
 # peak heap in the web build (3.5GB vs 2.5GB measured) for ~21MB of output that this
 # layer then deletes, which is what OOM-killed the image build. A build that opts in
@@ -114,7 +116,8 @@ RUN node -e "\
 # plus web/cli/tests-e2e/embed-sdk whose deps (react & friends) would otherwise land
 # in the runtime node_modules. dist/packages/web is already built and kept.
 # Then drop the removed entries from the root workspaces list and regenerate bun.lock.
-RUN rm -rf packages/pieces/core packages/pieces/custom \
+RUN find packages/pieces/custom -mindepth 1 -maxdepth 1 ! -name 'playstack-*' -exec rm -rf {} + && \
+    rm -rf packages/pieces/core \
       packages/web packages/cli packages/tests-e2e packages/ee && \
     find packages/pieces/community -mindepth 1 -maxdepth 1 -type d \
       ! -name slack \
